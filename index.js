@@ -1,10 +1,13 @@
 var app = new Vue({
   el: "#app",
   data: {
+    product: "socks",
+    image: "assets/socks.jpg",
     onSale: true,
+    cart: 0,
+    inStock: false,
     brand: "Vue Mastery",
     selectedVariant: 0,
-    image: "./assets/socks.jpg",
     details: ["80% cotton", "20% polyester", "Gender-neutral"],
     variants: [
       {
@@ -24,5 +27,13 @@ var app = new Vue({
     ],
     sizes: ["S", "M", "L", "XL", "XXL", "XXXL"],
     reviews: [],
+  },
+  methods: {
+    addToCart() {
+      this.cart += 1;
+    },
+    updateProductImage(variantImage) {
+      this.image = variantImage;
+    },
   },
 });
